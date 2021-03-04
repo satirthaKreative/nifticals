@@ -29,7 +29,9 @@ class SendEmailDemo extends Mailable
      */
     public function build()
     {
-        return $this->view('email.testemail')
+        return $this->subject('Nifticals Product Query Mail')
+                    ->from('info@niftical.com')
+                    ->view('email.testemail')
                     ->with("details",$this->data)
                     ->attach($this->data['mail_image']->getRealPath(), [
                         'as' => $this->data['mail_image']->getClientOriginalName()

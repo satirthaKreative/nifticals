@@ -11,6 +11,8 @@
     </div>
 </div>
 
+
+
 <section class="prod_area">
     <div class="container">
         <div class="row">
@@ -24,7 +26,7 @@
              <div class="col-lg-6 col-md-6 text-right">
                 <select name="" id="">
                     <option value="">
-                        Short By
+                        Sort By
                     </option>
                 </select>
             </div>
@@ -128,6 +130,57 @@
     </div>
 </section>
 
+<section class="feature_area">
+  <div class="container">
+    <div class="row">
+        <h2>Featured Collections</h2>
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/f_pic1.png') }}">
+                    <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Metal prints</h3>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/cst-img.jpg') }}">
+                     <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Custom hasmark print</h3>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/acy-img.jpg') }}">
+                     <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Acrylic block</h3>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/f_pic4.png') }}">
+                     <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Canvas prints</h3>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
 
 <div class="clearfix"></div>
 @endsection

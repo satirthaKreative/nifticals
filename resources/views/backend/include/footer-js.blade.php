@@ -20,6 +20,9 @@
 <script src="{{ asset('backend/dist/js/demo.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- data-table jQuery -->
+<script type="text/javascript" src="{{ asset('backend/data-table-asset/media/js/jquery.dataTables.min.js') }}"></script>
 
 <!-- success alert -->
 @if(Session::has('success_msg'))

@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Elevated Admin</title>
+  <title>Nifticals Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -26,7 +26,11 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- toggle -->
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
+  
+  <!-- data-table -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('backend/data-table-asset/media/css/jquery.dataTables.min.css') }}"/>
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('backend/backed-custom.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
       .scroll-demo-table {

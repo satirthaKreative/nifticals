@@ -29,6 +29,6 @@ class SendContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.contactTestEmail')->with("details",$this->data);
+        return $this->subject('Nifticals Contact Mail')->from('info@niftical.com')->view('email.contactTestEmail')->with("details",$this->data);
     }
 }

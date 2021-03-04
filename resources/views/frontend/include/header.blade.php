@@ -16,9 +16,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 col-sm-3 logo_con">
-							<a href="index.php"><img src="{{ asset('frontend/images/logo.png') }}" alt=""></a>
+							<a href="{{ route('satirtha.home') }}"><img src="{{ asset('frontend/images/logo.png') }}" alt=""></a>
 						</div>
-						<div class="col-md-9 col-sm-9">
+						<div class="col-md-9 col-sm-9 text-right">
 							<div class="menu-part">
 								<div id="navigation">
 									<nav>
@@ -30,7 +30,7 @@
 													<li><a href="#">Wedding Ceremony</a></li>
 												</ul> -->
 											</li>
-											<li><a href="{{ route('satirtha.categories') }}">Categories</a>
+											<!-- <li><a href="{{ route('satirtha.categories') }}">Categories</a> -->
 											</li>
 											<li><a href="{{ route('satirtha.contact') }}">Contact</a></li>
 
@@ -41,10 +41,10 @@
 							<div class="header_rihgt">
 								<ul>
 									<li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></a></li>
-									<li><a href="#"><i class="fa fa-shopping-cart"></i><span>0</span></a></li>
-									<li>
+									<!-- <li><a href="#"><i class="fa fa-shopping-cart"></i><span>0</span></a></li> -->
+									<!-- <li>
 										<a class="join" href="{{ route('satirtha.join') }}">Join Us</a>
-									</li>
+									</li> -->
 								</ul>
 							</div>
 						</div>

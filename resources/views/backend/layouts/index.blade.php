@@ -49,7 +49,7 @@
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="{{ route('admin.payment') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="javascript: ;" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -153,39 +153,5 @@
 <!-- /.content -->
 @endsection
 @section('adminjsContent')
-<script>
-$(document).ready(function(){
-  $.ajax({
-    url: "{{ route('admin.countAllDivision') }}",
-    type: "GET",
-    dataType: "json",
-    success: function(event){
-      jQuery("#campaign-count").html("00");
-      jQuery("#payment-count").html(event.countPayment);
-      jQuery("#member-count").html(event.countUser);
-      jQuery("#unique-visitors-count").html(event.countUniqueVisitors);
-    },error: function(event){
 
-    }
-  })
-})
-
-function show_new_visitors()
-{
-  $.ajax({
-    url: "{{ route('admin.showCountVisitors') }}",
-    type: "GET",
-    dataType: "json",
-    success: function(event){
-      var today_c = event.countTodayVisitors;
-      var total_c = event.countTotalVisitors;
-      var pass_count_data = 'Total Visitors : '+event.countTotalVisitors;
-      var pass_data = 'Today New Visitors : '+event.countTodayVisitors;
-      count_alert_unique_visitor(pass_data, pass_count_data, today_c, total_c);
-    }, error: function(event){
-
-    }
-  })
-}
-</script>
 @endsection

@@ -32,3 +32,17 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('admin.log-
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::view('/admin', 'admin');
 Auth::routes();
+
+// user panel routing
+Route::group(['prefix' => '/admin'], function(){
+    Route::get('/dashboard','Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('/logout','Admin\DashboardController@logout')->name('admin.logout');
+    // product category
+    Route::get('/product-category','Admin\CategoryController@showPage')->name('admin.show-category');
+    Route::get('/show-product-category','Admin\CategoryController@showProductCategory')->name('admin.show-actual-category');
+    Route::get('/product-add-category','Admin\CategoryController@addProductCategory')->name('admin.product-add-category');
+    Route::get('/show-edit-actual-category','Admin\CategoryController@showEditProductCategory')->name('admin.show-edit-actual-category');
+    Route::get('/product-update-category','Admin\CategoryController@updateProductCategory')->name('admin.product-update-category');
+    Route::get('/product-change-action-category','Admin\CategoryController@actionProductCategory')->name('admin.product-change-action-category');
+    Route::get('/product-del-action-category','Admin\CategoryController@delProductCategory')->name('admin.product-del-action-category');
+});
