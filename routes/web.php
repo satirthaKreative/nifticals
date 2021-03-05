@@ -45,4 +45,23 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/product-update-category','Admin\CategoryController@updateProductCategory')->name('admin.product-update-category');
     Route::get('/product-change-action-category','Admin\CategoryController@actionProductCategory')->name('admin.product-change-action-category');
     Route::get('/product-del-action-category','Admin\CategoryController@delProductCategory')->name('admin.product-del-action-category');
+    // sub product category
+    Route::get('/product-sub-category','Admin\SubCategoryController@showPage')->name('admin.show-sub-category');
+        // get category for sub categories
+        Route::get('/get-product-cate-sub-category','Admin\SubCategoryController@category_found')->name('admin.get-category-for-subcate');
+        ////////
+    Route::get('/show-product-sub-category','Admin\SubCategoryController@showProductCategory')->name('admin.show-actual-sub-category');
+    Route::get('/product-add-sub-category','Admin\SubCategoryController@addProductCategory')->name('admin.product-add-sub-category');
+    Route::get('/show-edit-actual-sub-category','Admin\SubCategoryController@showEditProductCategory')->name('admin.show-edit-actual-sub-category');
+    Route::get('/product-update-sub-category','Admin\SubCategoryController@updateProductCategory')->name('admin.product-update-sub-category');
+    Route::get('/product-change-action-sub-category','Admin\SubCategoryController@actionProductCategory')->name('admin.product-change-action-sub-category');
+    Route::get('/product-del-action-sub-category','Admin\SubCategoryController@delProductCategory')->name('admin.product-del-action-sub-category');
+    // product details
+    Route::get('/product-details','Admin\ProductController@showPage')->name('admin.show-product');
+    Route::get('/show-product-details','Admin\ProductController@showProduct')->name('admin.show-actual-product');
+    Route::get('/product-details-add','Admin\ProductController@addProductCategory')->name('admin.product-add');
+    Route::get('/show-edit-product-details','Admin\ProductController@showEditProductCategory')->name('admin.show-edit-actual-product');
+    Route::get('/product-details-update','Admin\ProductController@updateProductCategory')->name('admin.product-update');
+    Route::get('/product-details-change-action','Admin\ProductController@actionProductCategory')->name('admin.product-change-action');
+    Route::get('/product-details-del-action','Admin\ProductController@delProductCategory')->name('admin.product-del-action');
 });

@@ -92,6 +92,42 @@
            </li>
          </ul>
         </li>
+
+        <li class="nav-item has-treeview">
+          <a href="javascript: ;" class="nav-link @if($page == 'product-sub-category') active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+              Sub Category
+              <i class="fas fa-angle-left right"></i>
+            </p>
+         </a>
+         <ul class="nav nav-treeview">
+           <li class="nav-item">
+             <a href="{{ route('admin.show-sub-category') }}" class="nav-link">
+               <i class="far fa-circle nav-icon"></i>
+               <p>View Sub Category</p>
+             </a>
+           </li>
+         </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="javascript: ;" class="nav-link @if($page == 'product-details') active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+              Product
+              <i class="fas fa-angle-left right"></i>
+            </p>
+         </a>
+         <ul class="nav nav-treeview">
+           <li class="nav-item">
+             <a href="{{ route('admin.show-product') }}" class="nav-link">
+               <i class="far fa-circle nav-icon"></i>
+               <p>View Product</p>
+             </a>
+           </li>
+         </ul>
+        </li>
         
         
       </ul>
