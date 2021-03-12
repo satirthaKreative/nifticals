@@ -8,9 +8,9 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="bantext">
-                                <h1>"Nifticals”  - Physical NFT’s
+                                <h1><span>"Nifticals"</span>  - Physical NFT’s
                                </h1>
-                               <p>Bringing Art From Your Digital Wallet to Your Wall</p>
+                               <p>Bringing art from your digital wallet to your wall.</p>
                                <!--  <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
                                 <a href="#">Read More</a> -->
                             </div>
@@ -23,7 +23,7 @@
             </div>
             
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <div class="banner">
                 <div class="container-fluid">
                     <div class="row">
@@ -31,9 +31,8 @@
                             <div class="bantext">
                                 <h1>"Nifticals”  - Physical NFT’s
                                </h1>
-                               <p>Bringing Art From Your Digital Wallet to Your Wall</p>
-                               <!--  <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
-                                <a href="#">Read More</a> -->
+                               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                               
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 slide_pic">
@@ -43,7 +42,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -52,9 +51,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <h4>Paints that inspires you</h4>
-                <h2>Showcase your NTS's with a <strong>Nifticals</strong></h2>
-                <a href="{{ route('satirtha.product') }}">Order Now</a>
+                <!-- <h4>Paints that inspires you</h4> -->
+                <h2>Showcase your NFT's with a <br><strong>Niftical</strong></h2>
+                <a href="product.php">Order Now</a>
             </div>
             <div class="col-md-6 col-sm-6">
                 <img src="{{ asset('frontend/images/print_pic.png') }}">

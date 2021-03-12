@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- toggle -->
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-  
+
   <!-- data-table -->
   <link rel="stylesheet" type="text/css" href="{{ asset('backend/data-table-asset/media/css/jquery.dataTables.min.css') }}"/>
   <!-- summernote -->
@@ -37,4 +37,6 @@
             max-height: 1160px !important;
         }
   </style>
+
+
 </head>

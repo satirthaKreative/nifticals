@@ -15,6 +15,7 @@ class MailSendController extends Controller
             $mail_name = $request->input('mail_name');
             $mail_address = $request->input('mail_address');
             $mail_email = $request->input('mail_email');
+            $mail_product = $request->input('mail_product');
             $mail_phone = $request->input('mail_phone');
             $mail_image_link = $request->input('mail_image_link');
             $mail_qr_code = $request->input('mail_qr_code');
@@ -46,6 +47,7 @@ class MailSendController extends Controller
                     "mail_name"=>$mail_name,
                     "mail_email" => $mail_email,
                     "mail_address"=>$mail_address,
+                    "mail_product"=>$mail_product,
                     "mail_phone"=>$mail_phone,
                     "mail_image_link"=>$mail_image_link,
                     "mail_qr_code"=>$mail_qr_code,

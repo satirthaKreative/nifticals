@@ -19,18 +19,18 @@
                 <ul>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <h4>Office</h4>
-                        <p>4319  Daffodil Lane, Arlington Virginia</p>
+                        <h4>Location</h4>
+                        <p>Brooklyn, NY</p>
                     </li>
-                    <li>
+                    <!-- <li>
                         <i class="fas fa-phone-volume"></i>
                         <h4>Contacts</h4>
                         <p><a href="#">703-416-0046, 703-859-0361</a></p>
-                    </li>
+                    </li> -->
                     <li>
                         <i class="fas fa-envelope"></i>
                         <h4>Email</h4>
-                        <p><a href="#">Sales@nifticals.com</a></p>
+                        <p><a href="#">info@nifticals.io</a></p>
                     </li>
                 </ul>
             </div>

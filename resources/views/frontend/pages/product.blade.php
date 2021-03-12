@@ -1,11 +1,12 @@
 @extends('frontend.app')
 @section('content')
+
 <div class="inner-ban">
     <img src="{{ asset('frontend/images/inner-ban.jpg') }}" alt="">
     <div class="ban text">
         <h2>Products</h2>
         <ul>
-            <li><a href="{{ route('satirtha.home') }}">Home <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="#">Home <i class="fas fa-chevron-right"></i></a></li>
             <li>Products</li>
         </ul>
     </div>
@@ -13,7 +14,7 @@
 
 
 
-<section class="prod_area">
+<!-- <section class="prod_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 text-left">
@@ -26,14 +27,14 @@
              <div class="col-lg-6 col-md-6 text-right">
                 <select name="" id="">
                     <option value="">
-                        Sort By
+                        Short By
                     </option>
                 </select>
             </div>
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic1.png') }}">
+                        <img src="images/p_pic1.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -45,7 +46,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic2.png') }}">
+                        <img src="images/p_pic2.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -57,7 +58,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic3.png') }}">
+                        <img src="images/p_pic3.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -69,7 +70,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic4.png') }}">
+                        <img src="images/p_pic4.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -81,7 +82,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic5.png') }}">
+                        <img src="images/p_pic5.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -93,7 +94,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic6.png') }}">
+                        <img src="images/p_pic6.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -105,7 +106,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic7.png') }}">
+                        <img src="images/p_pic7.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -117,7 +118,7 @@
             <div class="col-md-3 col-sm-3 col-6">
                 <div class="prod_pic">
                     <div class="prod_pic_con">
-                        <img src="{{ asset('frontend/images/p_pic8.png') }}">
+                        <img src="images/p_pic8.png">
                         <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -128,16 +129,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="feature_area">
   <div class="container">
     <div class="row">
-        <h2>Featured Collections</h2>
         <div class="col-md-3 col-sm-3 col-6">
             <div class="feature_pic">
                 <div class="feature_pic_con">
-                    <img src="{{ asset('frontend/images/f_pic1.png') }}">
+                    <img src="{{ asset('frontend/images/metal_design.jpg') }}">
                     <div class="hov-but">
                         <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
                     </div>
@@ -145,28 +145,7 @@
                 <h3>Metal prints</h3>
             </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-6">
-            <div class="feature_pic">
-                <div class="feature_pic_con">
-                    <img src="{{ asset('frontend/images/cst-img.jpg') }}">
-                     <div class="hov-but">
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
-                    </div>
-                </div>
-                <h3>Custom hasmark print</h3>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-6">
-            <div class="feature_pic">
-                <div class="feature_pic_con">
-                    <img src="{{ asset('frontend/images/acy-img.jpg') }}">
-                     <div class="hov-but">
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
-                    </div>
-                </div>
-                <h3>Acrylic block</h3>
-            </div>
-        </div>
+
         <div class="col-md-3 col-sm-3 col-6">
             <div class="feature_pic">
                 <div class="feature_pic_con">
@@ -176,6 +155,30 @@
                     </div>
                 </div>
                 <h3>Canvas prints</h3>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/IMG_0799.jpg') }}">
+                     <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Acrylic block</h3>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-3 col-6">
+            <div class="feature_pic">
+                <div class="feature_pic_con">
+                    <img src="{{ asset('frontend/images/cst-img.jpg') }}">
+                     <div class="hov-but">
+                        <a href="#" data-toggle="modal" data-target="#myModal2">Order Now</a>
+                    </div>
+                </div>
+                <h3>Custom hashmask print</h3>
             </div>
         </div>
     </div>

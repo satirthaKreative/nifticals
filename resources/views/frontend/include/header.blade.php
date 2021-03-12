@@ -69,12 +69,19 @@
                   <img src="{{ asset('frontend/images/cust-img.jpg') }}" alt="">
               </div>
               <div class="col-lg-6">
-                  <h3>Create Your Custom Print, Today !!</h3>
+                  <h3>Create your order and a member of our team will get back to you</h3>
                   <form action="{{ route('satirtha.store-email') }}" method="POST" enctype="multipart/form-data">
 				  @csrf
                       <input type="text" placeholder="Name" name="mail_name" required>
                       <input type="text" placeholder="Address" name="mail_address" required>
                       <input type="text" placeholder="Email " name="mail_email" required>
+					  <select name="mail_product" class="header-product-modal-select-class" required>
+							<option value="">Choose product</option>
+							<option value="Metal prints">Metal prints</option>
+							<option value="Canvas prints">Canvas prints</option>
+							<option value="Acrylic block">Acrylic block</option>
+							<option value="Custom hashmask print">Custom hashmask print</option>
+					  </select>
                       <input type="text" placeholder="Phone (Optional)" name="mail_phone" >
                       <input type="text" placeholder="Link to image (Optional)" name="mail_image_link" >
                       <input type="text" placeholder="Link to site to be placed on QR code" name="mail_qr_code" required>

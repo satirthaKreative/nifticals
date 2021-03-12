@@ -259,4 +259,19 @@ class SubCategoryController extends Controller
 
         echo json_encode($html);
     }
+
+    public function chooseSubCategory(Request $request)
+    {
+        $getSubCategory = SubCategoryModel::where(['category_id' => $_GET['id']])->get();
+        $html = '<option value="">Choose your sub-category name</option>';
+        if(count($getSubCategory) > 0)
+        {
+            foreach($getSubCategory as $getSubC)
+            {
+                $html .= '<option value="'.$getSubC->id.'">'.$getSubC->sub_category_name.'</option>';
+            }
+            
+        }
+        echo json_encode($html);
+    }
 }

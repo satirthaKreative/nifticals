@@ -23,7 +23,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- data-table jQuery -->
 <script type="text/javascript" src="{{ asset('backend/data-table-asset/media/js/jquery.dataTables.min.js') }}"></script>
-
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <!-- success alert -->
 @if(Session::has('success_msg'))
 <script>
