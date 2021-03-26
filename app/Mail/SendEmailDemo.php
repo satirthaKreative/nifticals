@@ -30,7 +30,7 @@ class SendEmailDemo extends Mailable
     public function build()
     {
         return $this->subject('Nifticals Product Query Mail')
-                    ->from('info@niftical.com')
+                    ->from('test@elevatedadvice.com')
                     ->view('email.testemail')
                     ->with("details",$this->data)
                     ->attach($this->data['mail_image']->getRealPath(), [

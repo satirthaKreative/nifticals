@@ -95,7 +95,7 @@
                             <tr>
 
                                 <td align="center" style="padding: 0;">
-                                    <h2 style="font-size: 24px;font-weight: 400;">Your custom print is ordered successfully</h2>
+                                    <h2 style="font-size: 24px;font-weight: 400;">Your order has been received! A member of our team will reach out to you to discuss the details.</h2>
                                    
                                 </td>
 
@@ -185,7 +185,7 @@
                 <!--==============logo start here===============-->
                <td style="background: #4D008D;font-size: 12px;color: #fff;text-align: center;border-top: 1px solid #6b458a;">
                     <!-- <p style="display: inline-block;padding-right: 30px;"><b>Contacts</b> : 703-416-0046, 703-859-0361</p> -->
-                    <p style="display: inline-block;"><b>Email </b>: Sales@nifticals.com</p>
+                    <p style="display: inline-block;"><b>Email </b>: info@nifticals.io</p>
                </td>
                 <!--==============logo end here===============-->
             </tr>

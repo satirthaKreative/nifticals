@@ -29,7 +29,7 @@ class SubscriberMail extends Mailable
     public function build()
     {
         return $this->subject('Nifticals Subscribe Mail')
-                    ->from('info@niftical.io')
+                    ->from('info@nifticals.io')
                     ->view('email.subscribe-mail')
                     ->with("details",$this->data);
     }

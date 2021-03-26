@@ -31,14 +31,14 @@ Route::group(['prefix' => '/'], function(){
 });
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('admin.log-submit');
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.new-login');
 Route::view('/admin', 'admin');
 Auth::routes();
 
 // user panel routing
 Route::group(['prefix' => '/admin'], function(){
     Route::get('/dashboard','Admin\DashboardController@index')->name('admin.dashboard');
-    Route::get('/logout','Admin\DashboardController@logout')->name('admin.logout');
+    Route::post('/logout','Admin\DashboardController@logout')->name('admin.logout');
     // product category
     Route::get('/product-category','Admin\CategoryController@showPage')->name('admin.show-category');
     Route::get('/show-product-category','Admin\CategoryController@showProductCategory')->name('admin.show-actual-category');
@@ -74,4 +74,27 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/subscriber-action-change','Admin\SubscriberController@subcriberActionChange')->name('admin.subscriber-admin-change-status');
     Route::get('/subscriber-action-del','Admin\SubscriberController@subcriberActionDel')->name('admin.subscriber-admin-del-status');
     Route::get('/subscriber-email-view-panel','Admin\SubscriberController@subscribers_email_view_panel')->name('admin.subscribers_email_view_panel');
+
+    // payment
+    Route::get('/payment','Admin\PaymentController@showPage')->name('admin.payment-show');
+    Route::get('/show-payment','Admin\PaymentController@showPayment')->name('admin.show-actual-payment');
+    Route::get('/show-edit-actual-category','Admin\PaymentController@showEditPayment')->name('admin.show-edit-actual-payment');
+    Route::get('/product-update-category','Admin\PaymentController@updatePayment')->name('admin.product-update-payment');
+    Route::get('/product-change-action-category','Admin\PaymentController@actionPayment')->name('admin.product-change-action-payment');
+    Route::get('/product-del-action-category','Admin\PaymentController@delPayment')->name('admin.product-del-action-payment');
+    // end of payment
+
+
+    // banner 
+    Route::get('/banner','Admin\BannerController@showPage')->name('admin.show-banner');
+    Route::get('/show-banner-details','Admin\BannerController@showProduct')->name('admin.show-actual-banner');
+    Route::post('/banner-details-add','Admin\BannerController@addProduct')->name('admin.banner-add');
+    Route::get('/show-edit-banner-details','Admin\BannerController@showEditProduct')->name('admin.show-edit-actual-banner');
+    Route::post('/banner-details-update','Admin\BannerController@updateProduct')->name('admin.banner-update');
+    Route::get('/banner-details-change-action','Admin\BannerController@actionProduct')->name('admin.banner-change-action');
+    Route::get('/banner-details-del-action','Admin\BannerController@delProduct')->name('admin.banner-del-action');
+    Route::get('/banner-gallery-del-action','Admin\BannerController@delGalleryProduct')->name('admin.banner-gallery-del-action');
+    // end of banner
+
+    
 });

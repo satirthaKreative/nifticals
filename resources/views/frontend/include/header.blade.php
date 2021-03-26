@@ -77,8 +77,8 @@
                       <input type="text" placeholder="Email " name="mail_email" required>
 					  <select name="mail_product" class="header-product-modal-select-class" required>
 							<option value="">Choose product</option>
-							<option value="Metal prints">Metal prints</option>
-							<option value="Canvas prints">Canvas prints</option>
+							<option value="Metal print">Metal prints</option>
+							<option value="Canvas print">Canvas prints</option>
 							<option value="Acrylic block">Acrylic block</option>
 							<option value="Custom hashmask print">Custom hashmask print</option>
 					  </select>

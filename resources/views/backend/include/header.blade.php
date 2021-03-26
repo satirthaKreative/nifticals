@@ -146,6 +146,42 @@
            </li>
          </ul>
         </li>
+
+        <li class="nav-item has-treeview">
+          <a href="javascript: ;" class="nav-link @if($page == 'payment') active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+              Payment
+              <i class="fas fa-angle-left right"></i>
+            </p>
+         </a>
+         <ul class="nav nav-treeview">
+           <li class="nav-item">
+             <a href="{{ route('admin.payment-show') }}" class="nav-link">
+               <i class="far fa-circle nav-icon"></i>
+               <p>View Payment</p>
+             </a>
+           </li>
+         </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="javascript: ;" class="nav-link @if($page == 'banner') active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+              Banner
+              <i class="fas fa-angle-left right"></i>
+            </p>
+         </a>
+         <ul class="nav nav-treeview">
+           <li class="nav-item">
+             <a href="{{ route('admin.show-banner') }}" class="nav-link">
+               <i class="far fa-circle nav-icon"></i>
+               <p>View Banner</p>
+             </a>
+           </li>
+         </ul>
+        </li>
         
       </ul>
     </nav>
@@ -154,7 +190,7 @@
   <!-- /.sidebar -->
 
   <!-- logout functions -->
-  <form id="logout-form" action="" method="POST" style="display: none;">
+  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
     @csrf
   </form>
   <!-- end of logout function -->

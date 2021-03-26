@@ -5,6 +5,7 @@ namespace App\Http\Controllers\email;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use GuzzleHttp\Exception\GuzzleException;
 use App\Mail\SendEmailDemo;
 
 class MailSendController extends Controller
@@ -55,7 +56,7 @@ class MailSendController extends Controller
                     "mail_image"=>$request->file('mail_image')
                 ];
                 
-                Mail::to($mail_email)->send(new \App\Mail\SendEmailDemo($data));
+                Mail::to($mail_email)->send(new SendEmailDemo($data));
 
                 
                 $request->session()->flash('success_msg', 'Successfully sent the mail');
