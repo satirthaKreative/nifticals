@@ -28,6 +28,37 @@ Route::group(['prefix' => '/'], function(){
     Route::get('/store-contact-email','email\SendContactController@store')->name('satirtha.store-contact-email');
     // for subscribe email
     Route::get('/store-subcribe-email','email\SubscriberController@store')->name('satirtha.subscriber-email');
+
+
+    /// frontend ///
+
+        // banner
+        Route::get('/banner-show','Front\HomePage\HomeController@bannerPage')->name('satirtha.banner-all-data');
+
+        // product
+        Route::get('/products-show','Front\ProductPage\ProductController@allProducts')->name('satirtha.load-all-products');
+        Route::get('/products-show-all','Front\ProductPage\ProductController@load_modal_product_data')->name('satirtha.load-modal-product-details');
+        // product single details
+        Route::get('/single-product-details/{val2}','Front\ProductPage\ProductDetailsController@index')->name('satirtha.show-single-product');
+        
+        // review
+        Route::get('/reviews','Front\Review\ReviewController@index')->name('satirtha.review-on-product');
+        Route::get('/product-review-panel-load','Front\Review\ReviewController@review_fx')->name('satirtha.product-review-panel-load');
+
+        // my account 
+        Route::get('/my-account','Front\MyAccount\MyAccountController@showPage')->name('satirtha.my-account');
+        Route::get('/my-account-show-all','Front\MyAccount\MyAccountController@load_my_account_details')->name('satirtha.my-account-data-load');
+        Route::get('/my-account-update-data','Front\MyAccount\MyAccountController@update_my_account_data_fx')->name('satirtha.update-my-account-dataflow');
+        Route::get('/my-account-update-field-data','Front\MyAccount\MyAccountController@show_update_myaccount_data_fx')->name('satirtha.my-account-show-data');
+        Route::get('/my-account-update-data','Front\MyAccount\MyAccountController@update_my_account_data_fx')->name('satirtha.update-my-account-dataflow');
+        Route::get('/my-account-password-change','Front\MyAccount\MyAccountController@my_account_password_change')->name('satirtha.my-account-password-change');
+
+        
+
+
+
+    /// end of frontend ///
+
 });
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('admin.log-submit');
@@ -59,6 +90,7 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/product-update-sub-category','Admin\SubCategoryController@updateProductCategory')->name('admin.product-update-sub-category');
     Route::get('/product-change-action-sub-category','Admin\SubCategoryController@actionProductCategory')->name('admin.product-change-action-sub-category');
     Route::get('/product-del-action-sub-category','Admin\SubCategoryController@delProductCategory')->name('admin.product-del-action-sub-category');
+
     // product details
     Route::get('/product-details','Admin\ProductController@showPage')->name('admin.show-product');
     Route::get('/show-product-details','Admin\ProductController@showProduct')->name('admin.show-actual-product');
@@ -68,6 +100,9 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/product-details-change-action','Admin\ProductController@actionProduct')->name('admin.product-change-action');
     Route::get('/product-details-del-action','Admin\ProductController@delProduct')->name('admin.product-del-action');
     Route::get('/product-gallery-del-action','Admin\ProductController@delGalleryProduct')->name('admin.product-gallery-del-action');
+
+    
+
     // subscribers data's
     Route::get('/subscriber','Admin\SubscriberController@showPage')->name('admin.show-subscriber');
     Route::get('/subscriber-show','Admin\SubscriberController@subcriberShow')->name('admin.show-actual-subscriber');
@@ -78,10 +113,10 @@ Route::group(['prefix' => '/admin'], function(){
     // payment
     Route::get('/payment','Admin\PaymentController@showPage')->name('admin.payment-show');
     Route::get('/show-payment','Admin\PaymentController@showPayment')->name('admin.show-actual-payment');
-    Route::get('/show-edit-actual-category','Admin\PaymentController@showEditPayment')->name('admin.show-edit-actual-payment');
-    Route::get('/product-update-category','Admin\PaymentController@updatePayment')->name('admin.product-update-payment');
-    Route::get('/product-change-action-category','Admin\PaymentController@actionPayment')->name('admin.product-change-action-payment');
-    Route::get('/product-del-action-category','Admin\PaymentController@delPayment')->name('admin.product-del-action-payment');
+    Route::get('/show-edit-actual-payment','Admin\PaymentController@showEditPayment')->name('admin.show-edit-actual-payment');
+    Route::get('/product-update-payment','Admin\PaymentController@updatePayment')->name('admin.product-update-payment');
+    Route::get('/product-change-action-payment','Admin\PaymentController@actionPayment')->name('admin.product-change-action-payment');
+    Route::get('/product-del-action-payment','Admin\PaymentController@delPayment')->name('admin.product-del-action-payment');
     // end of payment
 
 

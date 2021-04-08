@@ -17,20 +17,47 @@
             <div class="col-lg-6 col-md-6 pr-lg-5">
                 <h3>Login !!</h3>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-               <form action="">
-                    <input type="text" placeholder="User Name">
-                    <input type="password" placeholder="Password">
+               <form action="{{ route('login') }}"  method="POST">
+                   @csrf
+                    <input type="text" placeholder="User Name" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    <input type="password" placeholder="Password" name="password" required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     <input type="submit" value="Log in">
                </form>
             </div>
             <div class="col-lg-6 col-md-6 pl-lg-5">
                 <h3>Register Now</h3>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                <form action="">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
+                <form  method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <input type="text" placeholder="Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    <input type="text" placeholder="Email"  name="email" value="{{ old('email') }}" required autocomplete="email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    <input type="password" placeholder="Password" name="password" required autocomplete="new-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    <input type="password" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
                     <input type="submit" value="Register">
                 </form>
             </div>

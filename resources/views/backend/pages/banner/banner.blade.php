@@ -110,13 +110,13 @@ body.IE7 .Switch.Round { width: 1px; }
 /* end on off panel */
 </style>
   <!-- The Modal -->
-  <div class="modal" id="category-show-modal">
+  <div class="modal" id="banner-add-show-modal">
     <div class="modal-dialog">
       <div class="modal-content">
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Add Product</h4>
+          <h4 class="modal-title">Add Banner</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -125,48 +125,20 @@ body.IE7 .Switch.Round { width: 1px; }
           <form action="{{ route('admin.banner-add') }}" id="product-admin-modal-id" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="form-group">
-              <label for="email">Category:</label>
-                <select class="form-control" placeholder="Enter Category Name" name="category_name" id="category-name-id" onchange="category_change_for_subcategory_fx()" required>
-                    <option value="">Choose your category name</option>
-                </select>
+              <label for="pwd">Banner Heading Quote:</label>
+              <input type="text" class="form-control" placeholder="Enter Banner Heading Quote" name="banner_heading_quote" id="banner-name-id" required> 
             </div>
             <div class="form-group">
-              <label for="email">Sub Category:</label>
-                <select class="form-control" placeholder="Enter Sub Category Name" name="sub_category_name" id="sub-category-name-id" required>
-                    <option value="">Choose your sub-category name</option>
-                </select>
+              <label for="pwd">Banner Heading Name:</label>
+              <textarea class="form-control" placeholder="Enter Banner Heading Name" name="banner_heading_name" id="banner-heading-id"></textarea>
             </div>
             <div class="form-group">
-              <label for="pwd">Product Name:</label>
-              <input type="text" class="form-control" placeholder="Enter Product Name" name="product_name" id="product-name-id" required> 
+              <label for="pwd">Banner Paragraph:</label>
+              <textarea class="form-control" placeholder="Enter Paragraph Description" name="banner_paragraph" rows=6 id="banner-des-id"></textarea>
             </div>
             <div class="form-group">
-              <label for="pwd">Product price:</label>
-              <input type="number" class="form-control" placeholder="Enter Product Price" name="product_price" id="product-price-id" required>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Short Description:</label>
-              <textarea class="form-control" placeholder="Enter Product Short Description" name="product_short_description" id="product-short-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Description:</label>
-              <textarea class="form-control" placeholder="Enter Product Description" name="product_description" rows=6 id="product-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Additional Details:</label>
-              <textarea class="form-control" placeholder="Enter Product Description" name="product_additional_details" rows=4 id="product-additional-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Stock:</label>
-              <input type="number" name="product_stock" class="form-control" placeholder="Enter Product Stock" min=0 id="product-stock-id" required>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Thumbnail:</label>
-              <input type="file" class="form-control" name="product_thumbnail_name" placeholder="Enter Product Thumbnail" id="product-thumbnail-id" required>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Gallery Images:</label>
-              <input type="file" class="form-control" name="product_gallery_images_name[]" multiple placeholder="Enter Product Thumbnail" id="product-gallery-img-id" required>
+              <label for="pwd">Banner Image:</label>
+              <input type="file" class="form-control" name="banner_image" placeholder="Enter Banner Image" id="banner-image-id" required>
             </div>
             <button type="submit" id="category-modal-call-id" class="btn btn-primary">Submit</button>&nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </form>
@@ -176,13 +148,13 @@ body.IE7 .Switch.Round { width: 1px; }
     </div>
   </div>
   <!-- edit modal -->
-  <div class="modal" id="product-edit-show-modal">
+  <div class="modal" id="banner-edit-show-modal">
     <div class="modal-dialog">
       <div class="modal-content">
         <input type="hidden" name="product_hidden_long_id" value="">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Edit Product</h4>
+          <h4 class="modal-title">Edit Banner</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -190,66 +162,28 @@ body.IE7 .Switch.Round { width: 1px; }
         <div class="modal-body product-modal-open-height-scroll">
           <form action="{{ route('admin.banner-update') }}" id="product-admin-modal-id" method="POST" enctype="multipart/form-data">
           @csrf
-          <input type="hidden" name="edit_product_name_first_id" id="edit_product_name_first_id" value="" />
-            <div class="form-group">
-              <label for="email">Category:</label>
-                <select class="form-control" placeholder="Enter Category Name" name="category_name" id="edit-category-name-id" onchange="edit_category_change_for_subcategory_fx()" required>
-                    <option value="">Choose your category name</option>
-                </select>
+          <input type="hidden" name="edit_banner_name_first_name" id="edit-banner-form-hidden-id" value="" />
+          <div class="form-group">
+              <label for="pwd">Banner Heading Quote:</label>
+              <input type="text" class="form-control" placeholder="Enter Banner Heading Quote" name="banner_heading_quote" id="banner-name-edit-id" required> 
             </div>
             <div class="form-group">
-              <label for="email">Sub Category:</label>
-                <select class="form-control" placeholder="Enter Sub Category Name" name="sub_category_name" id="edit-sub-category-name-id" required>
-                    <option value="">Choose your sub-category name</option>
-                </select>
+              <label for="pwd">Banner Heading Name:</label>
+              <textarea class="form-control" placeholder="Enter Banner Heading Name" name="banner_heading_name" id="banner-heading-edit-id"></textarea>
             </div>
             <div class="form-group">
-              <label for="pwd">Product Name:</label>
-              <input type="text" class="form-control" placeholder="Enter Product Name" name="product_name" id="edit-product-name-id" required> 
+              <label for="pwd">Banner Paragraph:</label>
+              <textarea class="form-control" placeholder="Enter Paragraph Description" name="banner_paragraph" rows=6 id="banner-des-edit-id"></textarea>
             </div>
             <div class="form-group">
-              <label for="pwd">Product price:</label>
-              <input type="number" class="form-control" placeholder="Enter Product Price" name="product_price" id="edit-product-price-id" required>
+              <label for="pwd">Banner Image:</label>
+              <input type="file" class="form-control" name="banner_image" placeholder="Enter Banner Image" id="banner-image-edit-id" >
             </div>
-            <div class="form-group">
-              <label for="pwd">Product Short Description:</label>
-              <textarea class="form-control" placeholder="Enter Product Short Description" name="product_short_description" id="edit-product-short-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Description:</label>
-              <textarea class="form-control" placeholder="Enter Product Description" name="product_description" rows=6 id="edit-product-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Additional Details:</label>
-              <textarea class="form-control" placeholder="Enter Product Description" name="product_additional_details" rows=4 id="edit-product-additional-des-id"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Stock:</label>
-              <input type="number" name="product_stock" class="form-control" placeholder="Enter Product Stock" min=0 id="edit-product-stock-id" required>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Thumbnail:</label>
-              <input type="file" class="form-control" name="product_thumbnail_name" placeholder="Enter Product Thumbnail" id="edit-product-thumbnail-id" >
-              <!-- thumbnail image -->
-              <div id="edit-type-thumbnail-image-id">
-                
-                </div>
-              <!-- /thumbnail image -->
-            </div>
-            <div class="form-group">
-              <label for="pwd">Product Gallery Images:</label>
-              <input type="file" class="form-control" name="product_gallery_images_name[]" multiple placeholder="Enter Product Thumbnail" id="edit-product-gallery-img-id" >
-              <!-- gallery image -->
-              <div id="edit-type-gallery-images-id">
-                
-              </div>
-              
-              <!-- /gallery image -->
+            <div id="edit-type-thumbnail-image-id">
+
             </div>
             <div class="clearfix"></div>
-            <div class="edit-modal-btn-view-class">
-              <button type="submit" id="category-modal-call-id" class="btn btn-primary">Submit</button>&nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+            <button type="submit" id="category-modal-call-id" class="btn btn-primary">Submit</button>&nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </form>
         </div>
 
@@ -262,12 +196,12 @@ body.IE7 .Switch.Round { width: 1px; }
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Product Details</h1>
+          <h1>Banner Details</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active">Product Details</li>
+            <li class="breadcrumb-item active">Banner Details</li>
           </ol>
         </div>
       </div>
@@ -282,7 +216,7 @@ body.IE7 .Switch.Round { width: 1px; }
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Product Details</h3>
+              <h3 class="card-title">Banner Details</h3>
                 <div class="row">
                     <div class="col-12" id="status_report">
 
@@ -290,7 +224,7 @@ body.IE7 .Switch.Round { width: 1px; }
                 </div>
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                  <a href="javascript: ;" class="btn btn-info btn-sm" id="add-banner-id" onclick="add_product_category()">Add Product</a>
+                  <a href="javascript: ;" class="btn btn-info btn-sm" id="add-banner-id" onclick="add_banner()">Add Banner</a>
                 </div>
               </div>
             </div>
@@ -339,11 +273,90 @@ function load_banner_fx()
     type: "GET",
     dataType: "json",
     success: function(e){
-
+      $("#campaign-tbl-id").html(e.product_full_data);
+      $("table").dataTable();
     }, error: function(e){
 
     }
   })
+}
+
+// banner addition 
+function add_banner()
+{
+  $("#banner-add-show-modal").modal('show');
+}
+
+function change_action(id,status_call)
+{
+    $.ajax({
+      url: "{{ route('admin.banner-change-action') }}",
+      type: "GET",
+      data: {id: id, status_call: status_call},
+      dataType: 'json',
+      success: function(event){
+        if(event.status_code == "success")
+        {
+          success_pass_alert_show_msg("Banner Changed successfully");
+          load_banner_fx();
+          location.reload();
+        }
+        else
+        {
+          error_pass_alert_show_msg("Something went wrong");
+        }
+      }, error: function(event){
+
+      }
+    })
+}
+
+function edit_action(id)
+{
+  $("#edit-banner-form-hidden-id").val(id);
+  $("#banner-edit-show-modal").modal('show');
+    $.ajax({
+        url: "{{ route('admin.show-edit-actual-banner') }}",
+        type: "GET",
+        data: {id: id},
+        dataType: "json",
+        success: function(event){
+          $("#banner-name-edit-id").val(event.banner_quote);
+          $("#banner-heading-edit-id").val(event.banner_name);
+          $("#banner-des-edit-id").val(event.banner_des);
+          $("#edit-type-thumbnail-image-id").html(event.banner_img);
+        }, error: function(event){
+
+        }
+    })
+}
+
+function del_action(id)
+{
+  var x = confirm("Are you really want to delete the banner?");
+  if(x)
+  {
+    $.ajax({
+      url: "{{ route('admin.banner-del-action') }}",
+      type: "GET",
+      data: {id: id},
+      dataType: 'json',
+      success: function(event){
+        if(event.status_code == "success")
+        {
+          success_pass_alert_show_msg("Banner deleted successfully");
+          load_banner_fx();
+          location.reload();
+        }
+        else
+        {
+          error_pass_alert_show_msg("Something went wrong");
+        }
+      }, error: function(event){
+
+      }
+    })
+  }
 }
 </script>
 @endsection

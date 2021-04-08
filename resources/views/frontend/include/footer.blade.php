@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <form action="{{ route('satirtha.subscriber-email') }}" method="get">
                         @csrf
-                        <input type="email" name="subscribe_email_name" placeholder="Email Address">
+                        <input type="email" name="subscribe_email_name" placeholder="Email Address" required="required">
                         <input type="submit" name="subscribe_email_submit" value="Subscribe">
                     </form>
                 </div>
@@ -53,3 +53,9 @@
 <script src="{{ asset('frontend/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.slimNav_sk78.min.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script type="text/javascript" src="https://wp.incredibbble.com/writsy-shop/wp-content/themes/writsy-shop/assets/vendor/jquery-zoom/jquery.zoom.min.js?ver=1.7.18"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
+<script type="text/javascript" src="https://mreq.github.io/slick-lightbox/dist/slick-lightbox.js"></script>

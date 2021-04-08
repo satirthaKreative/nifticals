@@ -1,7 +1,7 @@
 @extends('frontend.app')
 @section('content')
 <div class="main_slider">
-    <div class="main-slider owl-carousel">
+    <div class="main-slider owl-carousel" id="banner-frontend-id">
         <div class="item">
             <div class="banner">
                 <div class="container-fluid">
@@ -234,5 +234,95 @@
 <div class="clearfix"></div>
 @endsection
 @section('jsContent')
+<script>
+    $(function(){
+        load_banner_fx();
+    });
 
+    function load_banner_fx()
+    {
+        $.ajax({
+            url: "{{ route('satirtha.banner-all-data') }}",
+            type: "GET",
+            dataType: "json",
+            success: function(e){
+                console.log(e);
+                    $("#banner-frontend-id").html(e.banner_html);
+                    load_banner_owl_fx();
+            }, error: function(e){
+
+            }
+        })
+    }
+
+    function load_banner_owl_fx()
+    {
+        var owl = $('.main-slider');
+        owl.owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            items: 1,
+            center: true,
+            nav: true,
+            thumbs: false,
+            thumbImage: false,
+            thumbsPrerendered: true,
+            thumbContainerClass: 'owl-thumbs',
+            thumbItemClass: 'owl-thumb-item',
+            navText: ['<span class="prev"><i class="fas fa-angle-left"></i></span>','<span class="next"><i class="fas fa-angle-right"></i></span>'],
+
+        });	
+        var owl = $('.testi_slider');
+        owl.owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            items: 1,
+            center: true,
+            nav: true,
+            thumbs: true,
+            thumbImage: false,
+            thumbsPrerendered: true,
+            thumbContainerClass: 'owl-thumbs',
+            thumbItemClass: 'owl-thumb-item',
+            navText: ['<span class="prev"><i class="fas fa-angle-left"></i></span>','<span class="next"><i class="fas fa-angle-right"></i></span>'],
+        });
+        var owl = $('.product_rolling');
+        owl.owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            items:4,
+            itemsMobile:[568,2],
+            itemsTablet:[768,3],
+            itemsTablet:[1024,3],
+            center: false,
+            nav: true,
+            thumbs: true,
+            thumbImage: false,
+            thumbsPrerendered: true,
+            thumbContainerClass: 'owl-thumbs',
+            thumbItemClass: 'owl-thumb-item',
+            navText: ['<span class="prev"><i class="fas fa-angle-left"></i></span>','<span class="next"><i class="fas fa-angle-right"></i></span>'],
+            responsive: {
+                0: {
+                items: 1
+                },
+
+                600: {
+                items: 2
+                },
+
+                1024: {
+                items: 3
+                },
+
+                1366: {
+                items: 4
+                }
+            }
+        });
+    }
+</script>
 @endsection
