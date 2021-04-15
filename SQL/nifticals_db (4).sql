@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2021 at 03:15 PM
+-- Generation Time: Apr 15, 2021 at 01:36 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -99,6 +99,36 @@ CREATE TABLE `banner_tbl` (
 INSERT INTO `banner_tbl` (`id`, `banner_heading_quote`, `banner_heading_name`, `banner_paragraph`, `banner_img`, `admin_status`, `created_at`, `updated_at`) VALUES
 (1, 'Nifticals', 'Physical NFT\'s', 'Bringing art from your digital wallet to your wall.', 'public/banners/banner26662/8FdZ13o5VjZ0fTzQCpfqNnPAADeWPIpqUxXAOrN2.png', 'active', '1617086958', '1617094954'),
 (3, 'Nifticals', 'Quick Learner', 'Lorem Ipsum is simply dummy text .', 'public/banners/banner48875/aBhH4WB7TdPnF7Lov5I7NVjK9Vm5AeGyZYUdCj6z.png', 'active', '1617101534', '1617355179');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart_tbls`
+--
+
+CREATE TABLE `cart_tbls` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `user_ip` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `additional_product_id` int(11) NOT NULL DEFAULT 0,
+  `product_price` double(8,2) NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `admin_action` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cart_tbls`
+--
+
+INSERT INTO `cart_tbls` (`id`, `user_id`, `user_ip`, `product_id`, `product_name`, `additional_product_id`, `product_price`, `product_quantity`, `admin_action`, `created_at`, `updated_at`) VALUES
+(1, 0, '127.0.0.1', 1, 'Product 01', 9, 199.00, 1, 'active', '2021-04-13 18:30:00', '2021-04-13 18:30:00'),
+(2, 0, '127.0.0.1', 4, 'Product 03', 0, 399.00, 1, 'active', '2021-04-14 18:30:00', '2021-04-14 18:30:00'),
+(3, 0, '127.0.0.1', 4, 'Product 03', 0, 399.00, 1, 'active', '2021-04-14 18:30:00', '2021-04-14 18:30:00'),
+(4, 0, '127.0.0.1', 4, 'Product 03', 0, 399.00, 1, 'active', '2021-04-14 18:30:00', '2021-04-14 18:30:00');
 
 -- --------------------------------------------------------
 
@@ -390,7 +420,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2021_03_26_092448_create-banner-tbl', 8),
 (13, '2021_04_05_085209_create-reviews-tbl', 9),
 (14, '2021_04_07_111302_create-user-full-address-table', 10),
-(15, '2021_04_08_072617_alter-my-account-table-add-country-code-column', 11);
+(15, '2021_04_08_072617_alter-my-account-table-add-country-code-column', 11),
+(16, '2021_04_13_074954_create-product-additional-data', 12),
+(17, '2021_04_13_122215_alter-product-additional-tbl', 13),
+(18, '2021_04_14_094941_create-cart-table', 14),
+(19, '2021_04_14_122036_alter-cart-table', 15);
 
 -- --------------------------------------------------------
 
@@ -426,6 +460,39 @@ CREATE TABLE `payment_tbl` (
 
 INSERT INTO `payment_tbl` (`id`, `user_id`, `user_name`, `payment_status`, `admin_action`, `created_at`, `updated_at`) VALUES
 (1, 1, 'user', 'no', 'yes', '2021-03-26 06:15:51', '2021-03-26 03:45:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_additional_tbl`
+--
+
+CREATE TABLE `product_additional_tbl` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_customize_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_customize_link` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `additional_status` enum('on','off') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'on'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_additional_tbl`
+--
+
+INSERT INTO `product_additional_tbl` (`id`, `product_id`, `product_customize_name`, `product_customize_link`, `user_ip`, `user_id`, `created_at`, `updated_at`, `additional_status`) VALUES
+(1, 4, 'test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-12 18:30:00', '2021-04-14 00:39:25', 'off'),
+(2, 5, 'New Test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-13 18:30:00', 'on'),
+(3, 4, 'New Test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-14 00:39:25', 'off'),
+(4, 4, 'Web Logos', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-14 00:39:25', 'off'),
+(5, 4, 'Nifticals', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-13 18:30:00', 'on'),
+(6, 1, 'test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-14 07:19:12', 'off'),
+(7, 1, 'test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-14 07:19:12', 'off'),
+(8, 1, 'test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-14 07:19:12', 'off'),
+(9, 1, 'test', 'https://nifticals.io/', '127.0.0.1', 0, '2021-04-13 18:30:00', '2021-04-13 18:30:00', 'on');
 
 -- --------------------------------------------------------
 
@@ -564,7 +631,7 @@ CREATE TABLE `subscriber_tbls` (
 --
 
 INSERT INTO `subscriber_tbls` (`id`, `subscriber_email_address`, `admin_status`, `created_at`, `updated_at`) VALUES
-(1, 'satirtha63@gmail.com', 'active', NULL, '2021-03-12 01:46:11'),
+(1, 'satirtha63@gmail.com', 'active', NULL, '2021-04-12 00:17:38'),
 (3, 'satirtha64@gmail.com', 'active', NULL, NULL),
 (4, 'satirtha.kreative@gmail.com', 'active', NULL, NULL);
 
@@ -642,6 +709,12 @@ ALTER TABLE `banner_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cart_tbls`
+--
+ALTER TABLE `cart_tbls`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `country`
 --
 ALTER TABLE `country`
@@ -663,6 +736,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `payment_tbl`
 --
 ALTER TABLE `payment_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_additional_tbl`
+--
+ALTER TABLE `product_additional_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -731,6 +810,12 @@ ALTER TABLE `banner_tbl`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `cart_tbls`
+--
+ALTER TABLE `cart_tbls`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
@@ -740,13 +825,19 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payment_tbl`
 --
 ALTER TABLE `payment_tbl`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product_additional_tbl`
+--
+ALTER TABLE `product_additional_tbl`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_category`
