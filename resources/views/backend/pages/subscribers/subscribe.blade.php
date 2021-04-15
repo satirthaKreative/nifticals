@@ -114,32 +114,19 @@ a {
 
         <!-- Modal body -->
         <div class="modal-body">
-          <form action="">
+          <form action="{{ route('admin.subscribe-email-sending-file') }}" method="GET">
+          @csrf
             <div class="form-group">
               <label for="email">Subscriber Email:</label>
-              <dl class="dropdown"> 
-  
-                <dt>
-                <a href="#">
-                  <span class="hida">Select Email Address</span>    
-                  <p class="multiSel"></p>  
-                </a>
-                </dt>
+              <select class="form-control" id="subscriber-mail-name-id" name="subscriber_mail_name[]" multiple required>
 
-                <dd>
-                    <div class="mutliSelect">
-                        <ul class="subscribers-emails-view-panel">
-                            
-                        </ul>
-                    </div>
-                </dd>
-              </dl>
+              </select>
             </div>
             <div class="form-group">
               <label for="pwd">Content / Links:</label>
-              <textarea class="form-control" placeholder="Enter mail content" id="subscriber-mail-content-id"></textarea>
+              <textarea class="form-control" placeholder="Enter mail content" name="subscriber_mail_content" id="subscriber-mail-content-id" required></textarea>
             </div>
-            <button type="button" onclick="add_cate_data_fx()" id="category-modal-call-id" class="btn btn-primary">Submit</button>&nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" id="category-modal-call-id" class="btn btn-primary">Submit</button>&nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </form>
         </div>
 
@@ -252,40 +239,7 @@ function add_product_category()
     type: "GET",
     dataType: "json",
     success: function(event){
-      $(".subscribers-emails-view-panel").html(event.subscriber_email);
-      $(".dropdown dt a").on('click', function() {
-      $(".dropdown dd ul").slideToggle('fast');
-    });
-
-    $(".dropdown dd ul li a").on('click', function() {
-      $(".dropdown dd ul").hide();
-    });
-
-    function getSelectedValue(id) {
-      return $("#" + id).find("dt a span.value").html();
-    }
-
-    $(document).bind('click', function(e) {
-      var $clicked = $(e.target);
-      if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
-    });
-
-    $('.mutliSelect input[type="checkbox"]').on('click', function() {
-
-      var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
-        title = $(this).val() + ",";
-
-      if ($(this).is(':checked')) {
-        var html = '<span title="' + title + '">' + title + '</span>';
-        $('.multiSel').append(html);
-        $(".hida").hide();
-      } else {
-        $('span[title="' + title + '"]').remove();
-        var ret = $(".hida");
-        $('.dropdown dt a').append(ret);
-
-      }
-    });
+      $("#subscriber-mail-name-id").html(event.subscriber_email);
     }, error: function(event){
 
     }

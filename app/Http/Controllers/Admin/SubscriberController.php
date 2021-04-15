@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Mail;
 use App\Model\SubscriberModel;
+use App\Mail\AdminSubscriberMail;
 
 class SubscriberController extends Controller
 {
@@ -117,10 +120,29 @@ class SubscriberController extends Controller
         $html['subscriber_email'] = "";
         foreach($subscriberQuery as $sQuery)
         {
-            $html['subscriber_email'] .= '<li><input type="checkbox" value="'.$sQuery->subscriber_email_address.'" />'.$sQuery->subscriber_email_address.'</li>';
+            $html['subscriber_email'] .= '<option value="'.$sQuery->subscriber_email_address.'" />'.$sQuery->subscriber_email_address.'</option>';
         }
 
         echo json_encode($html);
+    }
+
+
+    public function subscribe_email_sending_file_fx(Request $request)
+    {
+        foreach($request->input('subscriber_mail_name') as $subscriber_name_mail)
+        {
+            $data = [
+                'heading_data' => "Acknownlwdge Mail from Nifticals",
+                'paragraph_data' => $request->input('subscriber_mail_content'),
+            ];
+            $geting_email = strtolower($subscriber_name_mail);
+            Mail::to($geting_email)->send(new \App\Mail\AdminSubscriberMail($data));
+
+            $request->session()->flash('success_msg', 'Successfully sent the mail');
+            return redirect()->back();
+        }
+
+            
     }
 
 }

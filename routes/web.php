@@ -53,6 +53,16 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/my-account-update-data','Front\MyAccount\MyAccountController@update_my_account_data_fx')->name('satirtha.update-my-account-dataflow');
         Route::get('/my-account-password-change','Front\MyAccount\MyAccountController@my_account_password_change')->name('satirtha.my-account-password-change');
 
+
+        /// review star count
+        Route::get('/review-star-count','Front\ProductPage\ProductDetailsController@review_star_count')->name('satirtha.review-star-count');
+        Route::get('/review-product-additional-details','Front\ProductPage\ProductDetailsController@product_details_additional_functional_fx')->name('satirtha.review-product-additional-details');
+        Route::get('/show-additional-product-details','Front\ProductPage\ProductDetailsController@show_additional_product_details_fx')->name('satirtha.show-additional-product-details');
+        Route::get('/additional-product-skip-fx','Front\ProductPage\ProductDetailsController@additional_product_skip_fx')->name('satirtha.additional-product-skip-fx');
+
+        // cart details 
+        Route::get('/cart','Front\Cart\CartController@showPage')->name('satirtha.show-cart-page');
+
         
 
 
@@ -109,6 +119,7 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/subscriber-action-change','Admin\SubscriberController@subcriberActionChange')->name('admin.subscriber-admin-change-status');
     Route::get('/subscriber-action-del','Admin\SubscriberController@subcriberActionDel')->name('admin.subscriber-admin-del-status');
     Route::get('/subscriber-email-view-panel','Admin\SubscriberController@subscribers_email_view_panel')->name('admin.subscribers_email_view_panel');
+    Route::get('/subscribe-email-sending-file','Admin\SubscriberController@subscribe_email_sending_file_fx')->name('admin.subscribe-email-sending-file');
 
     // payment
     Route::get('/payment','Admin\PaymentController@showPage')->name('admin.payment-show');

@@ -13,10 +13,14 @@
         <!-- Modal body -->
         <div class="modal-body">
           <h3>Customize Your Product</h3>
-          <form action="">
-                <input type="text" name="" placeholder="Enter Your Name For Print">
-                <input type="text" name="" placeholder="Link to side to be placed on QR Code">
-                <button class="skip">Skip</button>
+          <form action="{{ route('satirtha.review-product-additional-details') }}" method="GET">
+            @csrf
+            @foreach($productSingleQuery as $PSQuery)
+                <input type="hidden" name="product_id" value="{{ $PSQuery['id'] }}">
+            @endforeach
+                <input type="text" name="product_customize_name" id="product_customize_name_id" placeholder="Enter Your Name For Print">
+                <input type="text" name="product_customize_link" id="product_customize_link_id" placeholder="Link to side to be placed on QR Code">
+                <button type="button" class="skip" onclick="skip_to_cart()">Skip</button>
               	<button class="addtocart" type="submit">Add To Cart</button>
           </form>
         </div>        
@@ -78,13 +82,13 @@
         <div class="col-md-6">
             <h2>{{ $PSQuery['product_name'] }}</h2>
             <h3>$ {{  $PSQuery['product_price'] }}</h3>
-            <ul>
+            <ul id="customer-full-review-star-id">
+                <!-- <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><span>20 customer ratings</span></li>
+                <li><span>20 customer ratings</span></li> -->
             </ul>
             <p>{{  $PSQuery['product_short_description'] }}</p>
             <a href="#" data-toggle="modal" data-target="#myModal3">Add To Cart</a>
@@ -181,22 +185,6 @@
                             <p>{{ $rQuery['customer_msg'] }}</p>
                         </li>
                         @endforeach
-                        <!-- <li class="reply_connt">
-                            <div class="c_img">
-                                <img src="https://images.unsplash.com/photo-1557399468-58a8809fc653?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
-                            </div>
-                            <h3>John Cornel</h3>
-                            <p>Ut viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.Ut viverra purus vitUt viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.ae efficitur ornare.</p>
-                            <a href="#">Reply</a>
-                        </li>
-                        <li>
-                            <div class="c_img">
-                                <img src="https://images.unsplash.com/photo-1557399468-58a8809fc653?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
-                            </div>
-                            <h3>John Cornel</h3>
-                            <p>Ut viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.Ut viverra purus Ut viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.Ut viverra purus vitae efficitur ornare.vitae efficitur ornare.</p>
-                            <a href="#">Reply</a>
-                        </li> -->
                     </ul>
                 </div>
 
@@ -260,6 +248,7 @@
             dataType: "json",
             success: function(event){
                 $("#product-listing-id").html(event.product_datas);
+                load_product_star_review_fx();
             }, error: function(event){
 
             }
@@ -347,6 +336,58 @@
             }
         })
     }
+
+    // load star review 
+    function load_product_star_review_fx()
+    {
+        var product_id = $("#review-product-id").val();
+        $.ajax({
+            url: "{{ route('satirtha.review-star-count') }}",
+            type: "GET",
+            data: {productId: product_id},
+            dataType: "json",
+            success: function(event){
+                $("#customer-full-review-star-id").html(event);
+                load_product_additional_data_fx(product_id);
+            }, error: function(event){
+
+            }
+        })
+    }
+
+
+    function load_product_additional_data_fx(pId)
+    {
+        $.ajax({
+            url: "{{ route('satirtha.show-additional-product-details') }}",
+            type: "GET",
+            data: {pId: pId},
+            dataType: "json",
+            success: function(event){
+                $("#product_customize_name_id").val(event.custom_name);
+                $("#product_customize_link_id").val(event.custom_link);
+            }, error: function(event){
+
+            }
+        })
+    }
+
+    function skip_to_cart()
+    {
+        var product_id = $("#review-product-id").val();
+        $.ajax({
+            url: "{{ route('satirtha.additional-product-skip-fx') }}",
+            type: "GET",
+            data: {pId: product_id},
+            dataType: "json",
+            success: function(event){
+                window.location.href="{{ route('satirtha.show-cart-page') }}";
+            }, error: function(event){
+
+            }
+        });
+    }
+
     
 </script>
 @endsection
